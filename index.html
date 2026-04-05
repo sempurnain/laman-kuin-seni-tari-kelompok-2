@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>KUIS SENI TARI KELOMPOK 2</title>
+    <title>KUIS SENI TARI ELITE - KELOMPOK 2</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* === VARIABEL WARNA (PERSIS KODINGAN REFERENSI) === */
+        /* === VARIABEL WARNA XOS EDITION === */
         :root {
             --bg-color: #050505;
             --text-color: #ffffff;
@@ -34,13 +34,13 @@
         .blob:nth-child(3) { width: 450px; height: 450px; background: var(--blob-3); top: 30%; left: 40%; animation-delay: -8s; opacity: 0.3; }
         @keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(60px, 40px) scale(1.2); } }
 
-        /* === 3D GLASSMORPHISM CARD === */
+        /* === GLASSMORPHISM CARD === */
         .glass {
             background: var(--glass-bg);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            border-radius: 28px;
             box-shadow: 0 15px 35px var(--glass-shadow), var(--glass-inset);
             padding: 20px;
             margin-bottom: 15px;
@@ -50,18 +50,19 @@
         .container { width: 92%; max-width: 500px; margin-top: 20px; display: none; z-index: 10; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* === START SCREEN === */
+        /* === START SCREEN (CENTERED) === */
         #start-ui {
             position: fixed; inset: 0; z-index: 2000;
             display: flex; justify-content: center; align-items: center;
-            background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
         }
-        .start-content { width: 85%; max-width: 400px; text-align: center; }
-        .start-content h1 { font-size: 2.2rem; font-weight: 800; color: var(--accent-color); margin-bottom: 10px; text-transform: uppercase; }
+        .start-content { width: 85%; max-width: 400px; text-align: center; border-radius: 30px !important; }
+        .start-content h1 { font-size: 2.2rem; font-weight: 800; color: var(--accent-color); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; }
+
         .input-name {
-            width: 100%; padding: 16px; border-radius: 15px; border: 1px solid var(--glass-border);
-            background: rgba(255,255,255,0.05); color: #fff; margin: 20px 0; outline: none;
-            font-size: 1rem; text-align: center; box-shadow: var(--glass-inset);
+            width: 100%; padding: 18px; border-radius: 18px; border: 1px solid var(--glass-border);
+            background: rgba(255,255,255,0.05); color: #fff; margin: 25px 0; outline: none;
+            font-size: 1.1rem; text-align: center; box-shadow: var(--glass-inset);
         }
 
         /* === WARNING MODAL === */
@@ -70,53 +71,52 @@
             display: none; justify-content: center; align-items: center;
             background: rgba(0,0,0,0.9); backdrop-filter: blur(20px);
         }
-        .warning-box { width: 85%; max-width: 380px; text-align: center; border: 1px solid var(--accent-color) !important; }
+        .warning-box { width: 85%; max-width: 380px; text-align: center; border: 1.5px solid var(--accent-color) !important; }
 
         /* === QUIZ HEADER === */
-        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .timer-pill {
-            background: var(--glass-bg); padding: 8px 20px; border-radius: 50px;
+            background: var(--glass-bg); padding: 8px 22px; border-radius: 50px;
             border: 1px solid var(--glass-border); box-shadow: var(--glass-inset);
             font-weight: 800; font-size: 1.3rem; color: #fff;
         }
-        .info-label { font-size: 0.7rem; font-weight: 700; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; }
+        .info-label { font-size: 0.7rem; font-weight: 700; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1.5px; }
 
         /* === VISUAL AREA === */
         .visual-frame {
             width: 100%; min-height: 150px; background: rgba(0,0,0,0.3);
-            border-radius: 20px; border: 1px solid var(--glass-border);
-            display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 15px;
+            border-radius: 22px; border: 1px solid var(--glass-border);
+            display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 18px;
         }
         .visual-frame img { width: 100%; max-height: 230px; object-fit: contain; }
-        .question-text { font-size: 0.95rem; line-height: 1.6; text-align: justify; color: var(--text-muted); margin-bottom: 20px; }
+        .question-text { font-size: 0.95rem; line-height: 1.7; text-align: justify; color: var(--text-muted); margin-bottom: 22px; }
 
-        /* === BUTTONS (GENERAL STYLE) === */
-        .btn-style {
+        /* === BUTTON STYLE (XOS) === */
+        .btn-xos {
             background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
             color: #fff; cursor: pointer; transition: 0.3s; box-shadow: var(--glass-inset);
             display: flex; align-items: center; justify-content: center;
         }
-        .btn-style:active { transform: scale(0.95); }
+        .btn-xos:active { transform: scale(0.96); }
 
         /* === OPTIONS === */
-        .options-grid { display: flex; flex-direction: column; gap: 10px; }
-        .opt-btn { @extend .btn-style; padding: 16px; border-radius: 16px; text-align: left; font-size: 0.9rem; width: 100%; justify-content: flex-start; }
-        .opt-btn.correct { background: var(--correct-color) !important; color: #000 !important; font-weight: 700; border-color: var(--correct-color); }
-        .opt-btn.wrong { background: var(--accent-color) !important; animation: shake 0.4s ease; border-color: var(--accent-color); }
+        .options-grid { display: flex; flex-direction: column; gap: 12px; }
+        .opt-btn { padding: 18px; border-radius: 18px; text-align: left; font-size: 0.95rem; width: 100%; justify-content: flex-start; }
+        .opt-btn.correct { background: var(--correct-color) !important; color: #000 !important; font-weight: 800; border-color: var(--correct-color); }
+        .opt-btn.wrong { background: var(--accent-color) !important; border-color: var(--accent-color); animation: shake 0.4s ease; }
         @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-8px); } 75% { transform: translateX(8px); } }
 
-        /* === NAVIGASI === */
+        /* === NAVIGATION === */
         .nav-frame { display: flex; justify-content: space-between; gap: 15px; }
-        .btn-core { flex: 1; padding: 14px; border-radius: 15px; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; }
+        .btn-core { flex: 1; padding: 16px; border-radius: 18px; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
         .btn-back { background: rgba(255,255,255,0.05); color: #fff; }
-        .btn-next { background: var(--accent-color); color: #fff; border-color: transparent; }
+        .btn-next { background: var(--accent-color); color: #fff; border-color: transparent; box-shadow: 0 8px 20px rgba(255,26,26,0.3), var(--glass-inset); }
 
-        /* === NUMBER GRID (UPDATED) === */
+        /* === NUMBER NAV (SAMA DENGAN TOMBOL LAIN) === */
         .num-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
         .num-tile {
-            aspect-ratio: 1/1; border-radius: 14px; font-size: 0.85rem; font-weight: 700; color: rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); box-shadow: var(--glass-inset);
-            cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center;
+            aspect-ratio: 1/1; border-radius: 15px; font-size: 0.9rem; font-weight: 800; color: rgba(255,255,255,0.2);
+            cursor: pointer;
         }
         .num-tile.active { 
             border-color: var(--accent-color); 
@@ -126,12 +126,24 @@
         }
         .num-tile.done { color: #fff; border-color: rgba(255,255,255,0.3); }
 
-        /* === LEADERBOARD === */
-        .score-display { display: flex; justify-content: center; align-items: baseline; gap: 8px; margin: 20px 0; }
-        .score-display .big { font-size: 4rem; font-weight: 800; color: var(--correct-color); }
-        .rank-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.8rem; border-radius: 15px; overflow: hidden; }
-        .rank-table th { background: rgba(255, 26, 26, 0.15); padding: 12px; text-align: left; color: var(--accent-color); border-bottom: 1px solid var(--glass-border); }
-        .rank-table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: left; }
+        /* === RESULT UI (SKOR BESAR & BADGE) === */
+        #result-ui { text-align: center; }
+        .score-row { display: flex; justify-content: center; align-items: baseline; gap: 10px; margin: 15px 0; }
+        .score-big { font-size: 4.5rem; font-weight: 800; color: var(--correct-color); line-height: 1; }
+        .score-percent { font-size: 1.8rem; font-weight: 600; color: #fff; opacity: 0.8; }
+        .badge-gelar { 
+            display: inline-block; padding: 8px 25px; border-radius: 50px; 
+            background: rgba(0, 255, 136, 0.1); border: 1px solid var(--correct-color);
+            color: var(--correct-color); font-weight: 800; font-size: 0.9rem; margin-bottom: 25px;
+            letter-spacing: 1px; text-transform: uppercase;
+        }
+
+        /* === LEADERBOARD TABLE === */
+        .rank-container { border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); margin-top: 20px; background: rgba(0,0,0,0.2); }
+        .rank-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .rank-table th { padding: 14px; background: rgba(255, 26, 26, 0.15); color: var(--accent-color); text-align: left; text-transform: uppercase; font-weight: 800; }
+        .rank-table td { padding: 14px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: left; }
+        .rank-table tr:last-child td { border-bottom: none; }
 
         .pita { position: fixed; width: 8px; height: 12px; top: -20px; z-index: 9999; animation: fall linear forwards; }
         @keyframes fall { to { transform: translateY(105vh) rotate(720deg); } }
@@ -145,29 +157,30 @@
         <div class="blob"></div>
     </div>
 
-    <!-- 1. START UI -->
+    <!-- START UI -->
     <div id="start-ui">
         <div class="glass start-content">
             <h1>SENI TARI</h1>
-            <p style="font-size: 0.7rem; letter-spacing: 3px; opacity: 0.5;">KELOMPOK 2 - PGSD</p>
-            <input type="text" id="player-name" class="input-name" placeholder="Ketik namamu..." spellcheck="false">
-            <button class="btn-style btn-core btn-next" style="width: 100%; border-color: transparent;" onclick="requestStart()">MULAI KUIS</button>
+            <p style="font-size: 0.7rem; letter-spacing: 4px; opacity: 0.5;">KELOMPOK 2 - PGSD</p>
+            <input type="text" id="player-name" class="input-name" placeholder="Ketik nama lengkap..." spellcheck="false">
+            <button class="btn-xos btn-core btn-next" style="width: 100%;" onclick="requestStart()">MULAI KUIS</button>
         </div>
     </div>
 
-    <!-- 2. WARNING UI -->
+    <!-- WARNING UI -->
     <div id="warning-ui">
         <div class="glass warning-box">
-            <h2 style="color: var(--accent-color); margin-bottom: 15px;">SIAP? ⚠️</h2>
-            <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.6; margin-bottom: 25px; text-align: center;">
-                Waktu <b>20 Menit</b> akan segera berjalan. <br>Kerjakan dengan jujur dan teliti!
+            <h2 style="color: var(--accent-color); margin-bottom: 15px;">PERSIAPAN! ⚠️</h2>
+            <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">
+                Waktu <b>20 Menit</b> akan segera berjalan. <br>Jangan keluar dari halaman selama kuis berlangsung!
             </p>
-            <button class="btn-style btn-core btn-next" style="width: 100%; border-color: transparent;" onclick="confirmStart()">SAYA SIAP!</button>
+            <button class="btn-xos btn-core btn-next" style="width: 100%;" onclick="confirmStart()">SAYA MENGERTI</button>
         </div>
     </div>
 
     <div class="container" id="main-container">
         
+        <!-- HEADER -->
         <div class="quiz-header">
             <div>
                 <div class="info-label" id="label-no">SOAL 1 / 20</div>
@@ -176,38 +189,43 @@
             <div class="timer-pill" id="timer-val">20:00</div>
         </div>
 
-        <div class="glass">
-            <div class="visual-frame" id="visual-area"></div>
-            <div class="question-text" id="q-text">Memuat...</div>
-            <div class="options-grid" id="options-box"></div>
+        <!-- SOAL -->
+        <div id="quiz-screen">
+            <div class="glass">
+                <div class="visual-frame" id="visual-area"></div>
+                <div class="question-text" id="q-text">Memuat...</div>
+                <div class="options-grid" id="options-box"></div>
+            </div>
+
+            <div class="glass nav-frame">
+                <button class="btn-xos btn-core btn-back" id="btn-back" onclick="changeIdx(-1)">KEMBALI</button>
+                <button class="btn-xos btn-core btn-next" id="btn-next" onclick="changeIdx(1)">LANJUT</button>
+            </div>
+
+            <div class="glass">
+                <div class="num-grid" id="num-grid"></div>
+            </div>
         </div>
 
-        <div class="glass nav-frame">
-            <button class="btn-style btn-core btn-back" id="btn-back" onclick="changeIdx(-1)">KEMBALI</button>
-            <button class="btn-style btn-core btn-next" id="btn-next" style="border-color: transparent;" onclick="changeIdx(1)">LANJUT</button>
-        </div>
-
-        <div class="glass">
-            <div class="num-grid" id="num-grid"></div>
-        </div>
-
-        <!-- HASIL -->
+        <!-- HASIL AKHIR -->
         <div id="result-ui" style="display: none;">
-            <div class="glass" style="text-align: center;">
-                <h2 style="color: var(--accent-color);">KUIS SELESAI</h2>
-                <div class="score-display">
-                    <span class="big" id="res-score">0</span>
-                    <span style="opacity: 0.4; font-size: 1.5rem;">/ 20</span>
-                    <span id="res-percent" style="font-size: 1.2rem; margin-left: 10px;">(0%)</span>
+            <div class="glass">
+                <h2 style="color: var(--accent-color); letter-spacing: 1px; margin-bottom: 10px;">HASIL KUIS</h2>
+                <div class="score-row">
+                    <div class="score-big" id="res-score">0</div>
+                    <div style="font-size: 1.5rem; opacity: 0.4;">/ 20</div>
+                    <div class="score-percent" id="res-percent">(0%)</div>
                 </div>
-                <div id="res-badge" style="color: var(--correct-color); font-weight: 800; font-size: 0.9rem; margin-bottom: 25px;">GELAR: PENARI MUDA</div>
+                <div class="badge-gelar" id="res-badge">GELAR: -</div>
                 
-                <h3 style="text-align: left; font-size: 0.8rem; color: var(--accent-color); border-left: 3px solid var(--accent-color); padding-left: 10px; margin-bottom: 10px;">LEADERBOARD TOP 10</h3>
-                <table class="rank-table">
-                    <thead><tr><th>No</th><th>Nama</th><th>Skor</th></tr></thead>
-                    <tbody id="rank-body"></tbody>
-                </table>
-                <button class="btn-style btn-core btn-next" style="width: 100%; margin-top: 25px; border-color: transparent;" onclick="location.reload()">ULANGI KUIS</button>
+                <h3 style="text-align: left; font-size: 0.85rem; color: var(--accent-color); border-left: 3px solid var(--accent-color); padding-left: 10px; margin-bottom: 12px; text-transform: uppercase; font-weight: 800;">TOP 10 LEADERBOARD</h3>
+                <div class="rank-container">
+                    <table class="rank-table">
+                        <thead><tr><th>No</th><th>Nama</th><th>Skor</th></tr></thead>
+                        <tbody id="rank-body"></tbody>
+                    </table>
+                </div>
+                <button class="btn-xos btn-core btn-next" style="width: 100%; margin-top: 25px;" onclick="location.reload()">ULANGI KUIS</button>
             </div>
         </div>
 
@@ -218,7 +236,7 @@
             { q: "Seorang penari mengayunkan tangan ke kanan dan kiri tanpa maksud tertentu, hanya untuk memperindah gerakan.\n\nGerakan tersebut termasuk...", img: "https://res.cloudinary.com/dr3evkwcu/image/upload/v1775331263/FOTO_SOAL_NOMER_1_xozxb5.png", opt: ["A. Gerak maknawi", "B. Gerak tradisional", "C. Gerak murni", "D. Gerak modern"], ans: 2 },
             { q: "Seorang penari menirukan gerakan menanam padi di sawah.\n\nGerakan tersebut termasuk...", img: "https://res.cloudinary.com/dr3evkwcu/image/upload/v1775331292/FOTO_SOAL_NOMER_2_fklqft.png", opt: ["A. Gerak murni", "B. Gerak maknawi", "C. Gerak bebas", "D. Gerak irama"], ans: 1 },
             { q: "Jika penari bergerak cepat mengikuti musik yang cepat, unsur yang paling berpengaruh adalah...", img: null, opt: ["A. Ruang", "B. Tenaga", "C. Waktu", "D. Rias"], ans: 2 },
-            { q: "Perhatikan ilustrasi: Penari bergerak dari depan ke belakang panggung.\n\nUnsur gerak yang ditunjukkan adalah...", img: "https://res.cloudinary.com/dr3evkwcu/image/upload/v1775331275/FOTO_SOAL_NOMER_4_iljpaf.png", opt: ["A. Tenaga", "B. Ruang", "C. Waktu", "D. Rasa"], ans: 1 },
+            { q: "Perhatikan ilustrasi: Penari bergerak dari depan ke belakang panggung. ⬅️ ➡️\n\nUnsur gerak yang ditunjukkan adalah...", img: "https://res.cloudinary.com/dr3evkwcu/image/upload/v1775331275/FOTO_SOAL_NOMER_4_iljpaf.png", opt: ["A. Tenaga", "B. Ruang", "C. Waktu", "D. Rasa"], ans: 1 },
             { q: "Seorang penari menampilkan gerakan lembut dan pelan. Hal ini menunjukkan unsur…", img: "https://res.cloudinary.com/dr3evkwcu/image/upload/v1775331275/FOTO_SOAL_NOMER_4_iljpaf.png", opt: ["A. Waktu", "B. Tenaga", "C. Ruang", "D. Busana"], ans: 1 },
             { q: "Penari mampu menyesuaikan gerakan dengan irama musik dengan tepat. Kemampuan ini disebut...", img: null, opt: ["A. Wiraga", "B. Wirama", "C. Wirasa", "D. Wirupa"], ans: 1 },
             { q: "Seorang penari menunjukkan ekspresi sedih saat menari. Hal ini termasuk unsur...", img: null, opt: ["A. Wiraga", "B. Wirama", "C. Wirasa", "D. Properti"], ans: 2 },
@@ -245,7 +263,7 @@
 
         function requestStart() {
             pName = document.getElementById('player-name').value.trim();
-            if(!pName) return alert("Isi nama dulu!");
+            if(!pName) { vibrate(300); return alert("Mohon masukkan nama!"); }
             document.getElementById('start-ui').style.display = 'none';
             document.getElementById('warning-ui').style.display = 'flex';
         }
@@ -274,6 +292,7 @@
             const q = questions[idx];
             document.getElementById('label-no').innerText = `SOAL ${idx + 1} / 20`;
             document.getElementById('q-text').innerText = q.q;
+            
             const vis = document.getElementById('visual-area');
             vis.innerHTML = q.img ? `<img src="${q.img}">` : `<span style="font-size:3rem; opacity:0.1;">🎭</span>`;
 
@@ -281,7 +300,7 @@
             box.innerHTML = '';
             q.opt.forEach((txt, i) => {
                 const btn = document.createElement('div');
-                btn.className = 'opt-btn btn-style';
+                btn.className = 'opt-btn btn-xos';
                 if(answers[idx] !== null) {
                     if(i === q.ans) btn.classList.add('correct');
                     if(answers[idx] === i && i !== q.ans) btn.classList.add('wrong');
@@ -299,7 +318,7 @@
             grid.innerHTML = '';
             questions.forEach((_, i) => {
                 const d = document.createElement('div');
-                d.className = `num-tile btn-style ${i === idx ? 'active' : ''} ${answers[i] !== null ? 'done' : ''}`;
+                d.className = `num-tile btn-xos ${i === idx ? 'active' : ''} ${answers[i] !== null ? 'done' : ''}`;
                 d.innerText = i + 1;
                 d.onclick = () => { idx = i; render(); };
                 grid.appendChild(d);
@@ -324,7 +343,7 @@
         }
 
         function createPita() {
-            for(let i=0; i<30; i++){
+            for(let i=0; i<35; i++){
                 const p = document.createElement('div');
                 p.className = 'pita';
                 p.style.left = Math.random() * 100 + 'vw';
@@ -341,23 +360,22 @@
             answers.forEach((a, i) => { if(a === questions[i].ans) score++; });
             const pct = (score / 20) * 100;
 
-            let ranking = JSON.parse(localStorage.getItem('danceRankXOSFinal')) || [];
+            let ranking = JSON.parse(localStorage.getItem('danceRankXOSFinalV2')) || [];
             ranking.push({ name: pName, point: score, percent: pct });
             ranking.sort((a, b) => b.point - a.point);
-            localStorage.setItem('danceRankXOSFinal', JSON.stringify(ranking.slice(0, 10)));
+            localStorage.setItem('danceRankXOSFinalV2', JSON.stringify(ranking.slice(0, 10)));
 
-            document.getElementById('quiz-ui').style.display = 'none';
-            document.querySelector('.nav-frame').style.display = 'none';
-            document.getElementById('num-grid').parentElement.style.display = 'none';
+            document.getElementById('quiz-screen').style.display = 'none';
             document.getElementById('result-ui').style.display = 'block';
             
             document.getElementById('res-score').innerText = score;
             document.getElementById('res-percent').innerText = `(${pct}%)`;
 
             const badge = document.getElementById('res-badge');
-            if(score === 20) badge.innerText = "GELAR: MAESTRO SENI TARI 👑";
-            else if(score >= 15) badge.innerText = "GELAR: PAKAR TARI 🌟";
-            else badge.innerText = "GELAR: PENARI MUDA ✨";
+            if(score === 20) badge.innerText = "👑 MAESTRO SENI TARI";
+            else if(score >= 15) badge.innerText = "🌟 PAKAR TARI";
+            else if(score >= 10) badge.innerText = "✨ PENARI MUDA";
+            else badge.innerText = "📚 SEMANGAT BELAJAR";
 
             const body = document.getElementById('rank-body');
             body.innerHTML = ranking.slice(0, 10).map((r, i) => `
